@@ -1,6 +1,15 @@
+import { InputsContainer } from "./components/InputsContainer"
+import { Results } from "./components/Results"
+
 function App() {
   return (
-    <h1 className="font-medium text-primary-custom-purple text-3xl">hello world</h1>
+    <main className="min-h-screen max-w-full bg-neutral-off-white flex items-center justify-center p-2 md:p-0">
+      <section className="w-full md:w-[620px] bg-white rounded-md rounded-br-[40px] shadow-md h-fit p-8">
+        <InputsContainer />
+        <div className="divider text-neutral-smokey-grey"></div>
+        <Results />
+      </section>
+    </main>
   )
 }
 
