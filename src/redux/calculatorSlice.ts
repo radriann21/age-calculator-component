@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { initialState } from "../types/types";
 
-const initialState = {
+const initialState: initialState = {
   day: 0,
   month: 0,
   year: 0,
   resultYear: "--",
   resultMonth: "--",
-  resultDay: "--"
+  resultDay: "--",
+  error: false
 }
 
 export const calculatorSlice = createSlice({
@@ -23,6 +25,11 @@ export const calculatorSlice = createSlice({
       state.year = action.payload
     },
     calculateAge: (state) => {
+      if (state.day === 0 || state.month === 0 || state.year === 0) {
+        state.error = true
+        return
+      }
+
       const { day, month, year } = state
       const actualDate = new Date()
 
@@ -33,6 +40,7 @@ export const calculatorSlice = createSlice({
       state.resultYear = resultYear.toString()
       state.resultMonth = resultMonth.toString()
       state.resultDay = resultDay.toString()
+      state.error = false
     }
   }
 })

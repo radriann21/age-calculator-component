@@ -5,6 +5,7 @@ export type initialState = {
   resultYear: string;
   resultMonth: string;
   resultDay: string;
+  error: boolean;
 }
 
 export type CalculatorState = {
